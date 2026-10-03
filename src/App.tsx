@@ -1,11 +1,13 @@
+import './App.scss';
+import { Header } from './components/Header/Header';
 
-import './App.css'
-
-function App() {
-
-  return 
-    <div className="App">
-  
+export default function App() {
+  return (
+    <>
+      <Header />
+      <main id="main-content" className="page-content" aria-label="Star Wars universe" />
+    </>
+  );
 }
 
-export default App;
+
