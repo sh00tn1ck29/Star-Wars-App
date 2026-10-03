@@ -1,0 +1,161 @@
+@use '../../styles/variables' as variables;
+.character-list {
+  width: 100%;
+  min-width: 0;
+
+  &__heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  &__eyebrow {
+    margin: 0 0 10px;
+    color: variables.$color-accent-blue;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  &__count {
+    color: variables.$color-text-muted;
+    font-size: 13px;
+  }
+
+  &__items {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 1px solid variables.$color-border;
+    border-radius: 8px;
+    background: variables.$color-surface;
+  }
+
+  &__number {
+    flex-shrink: 0;
+    color: variables.$color-accent-blue;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__name {
+    overflow-wrap: anywhere;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid variables.$color-border;
+  }
+
+  &__summary {
+    text-align: center;
+    margin: 0;
+    color: variables.$color-text-muted;
+    font-size: 13px;
+  }
+
+  &__pagination {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid variables.$color-border;
+    border-radius: 10px;
+    background: variables.$color-surface-deep;
+  }
+
+  &__ellipsis {
+    display: grid;
+    place-items: center;
+    height: variables.$control-height;
+    color: variables.$color-text-subtle;
+  }
+
+  &__page {
+    min-width: 0;
+    min-height: variables.$control-height;
+    padding: 8px 0;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: variables.$color-text;
+    background: variables.$color-surface;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  &__page[aria-current='page'] {
+    border-color: variables.$color-accent;
+    color: variables.$color-background;
+    background: variables.$color-accent;
+    font-weight: 700;
+  }
+
+  &__page:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  &__page:focus-visible,
+  &__retry:focus-visible {
+    outline: 2px solid variables.$color-accent-blue;
+    outline-offset: 3px;
+  }
+
+  &__message {
+    margin: 0;
+    padding: 24px;
+    border: 1px solid variables.$color-border;
+    border-radius: 8px;
+    color: variables.$color-text-secondary;
+    background: variables.$color-surface;
+    line-height: 1.6;
+  }
+
+  &__retry {
+    min-height: variables.$control-height;
+    padding: 10px 16px;
+    border: 1px solid variables.$color-accent-blue;
+    border-radius: 6px;
+    color: variables.$color-text;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+  }
+}
+
+@media (hover: hover) {
+  .character-list__page:hover:not(:disabled):not([aria-current='page']),
+  .character-list__retry:hover {
+    background: variables.$color-border;
+  }
+}
+
+
+

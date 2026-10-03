@@ -1,7 +1,9 @@
+@use '../../styles/breakpoints' as breakpoints;
+@use '../../styles/variables' as variables;
 .site-header {
   position: relative;
-  background: linear-gradient(110deg, rgb(146 27 47 / 13%), transparent 40%, rgb(27 147 190 / 12%)), #080b12;
-  border-bottom: 1px solid rgb(151 176 201 / 12%);
+  background: linear-gradient(110deg, rgba(variables.$color-glow-red, 0.13), transparent 40%, rgba(variables.$color-glow-blue, 0.12)), variables.$color-background;
+  border-bottom: 1px solid rgba(variables.$color-header-border, 0.12);
 
   &::after {
     content: '';
@@ -9,15 +11,15 @@
     bottom: -1px;
     inset-inline: 0;
     height: 1px;
-    background: linear-gradient(90deg, #d64259, transparent 45%, transparent 55%, #3bbce9);
+    background: linear-gradient(90deg, variables.$color-accent-red, transparent 45%, transparent 55%, variables.$color-line-blue);
     pointer-events: none;
   }
 
   &__inner {
     display: flex;
     align-items: center;
-    min-height: 76px;
-    max-width: 1280px;
+    min-height: variables.$header-height-mobile;
+    max-width: variables.$container-width;
     margin-inline: auto;
     padding: 14px 20px;
   }
@@ -37,20 +39,20 @@
   }
 
   &__logo:focus-visible {
-    outline: 2px solid #57c7eb;
+    outline: 2px solid variables.$color-accent-blue;
     outline-offset: 7px;
   }
 }
 
 @media (hover: hover) {
   .site-header__logo:hover {
-    filter: drop-shadow(0 0 8px rgb(218 171 0 / 35%));
+    filter: drop-shadow(0 0 8px rgba(variables.$color-logo-glow, 0.35));
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: breakpoints.$tablet) {
   .site-header__inner {
-    min-height: 96px;
+    min-height: variables.$header-height-tablet;
     padding: 20px 32px;
   }
 
@@ -59,9 +61,9 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: breakpoints.$desktop) {
   .site-header__inner {
-    min-height: 112px;
+    min-height: variables.$header-height-desktop;
     padding: 24px 48px;
   }
 
@@ -75,3 +77,4 @@
     transition: none;
   }
 }
+

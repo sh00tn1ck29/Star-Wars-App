@@ -1,12 +1,39 @@
+@use './styles/breakpoints' as breakpoints;
+@use './styles/variables' as variables;
 .page-content {
-  min-height: calc(100svh - 76px);
-  background: radial-gradient(ellipse at 0 0, rgb(146 27 47 / 7%), transparent 50%), radial-gradient(ellipse at 100% 0, rgb(27 147 190 / 7%), transparent 50%);
+  min-height: calc(100svh - #{variables.$header-height-mobile});
+  background: radial-gradient(ellipse at 0 0, rgba(variables.$color-glow-red, 0.07), transparent 50%), radial-gradient(ellipse at 100% 0, rgba(variables.$color-glow-blue, 0.07), transparent 50%);
 
-  @media (min-width: 768px) {
-    min-height: calc(100svh - 96px);
-  }
-
-  @media (min-width: 1200px) {
-    min-height: calc(100svh - 112px);
+  &__inner {
+    display: grid;
+    align-items: start;
+    gap: 32px;
+    max-width: variables.$container-width;
+    margin-inline: auto;
+    padding: 32px 20px 48px;
   }
 }
+
+@media (min-width: breakpoints.$tablet) {
+  .page-content {
+    min-height: calc(100svh - #{variables.$header-height-tablet});
+  }
+
+  .page-content__inner {
+    grid-template-columns: 300px minmax(0, 1fr);
+    padding: 40px 32px 64px;
+  }
+}
+
+@media (min-width: breakpoints.$desktop) {
+  .page-content {
+    min-height: calc(100svh - #{variables.$header-height-desktop});
+  }
+
+  .page-content__inner {
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 40px;
+    padding: 48px 48px 64px;
+  }
+}
+
