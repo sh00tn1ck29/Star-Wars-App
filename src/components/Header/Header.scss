@@ -1,3 +1,4 @@
+@use '../../styles/common' as common;
 @use '../../styles/breakpoints' as breakpoints;
 @use '../../styles/variables' as variables;
 .site-header {
@@ -28,7 +29,7 @@
     display: inline-flex;
     flex-shrink: 0;
     width: 108px;
-    border-radius: 4px;
+    border-radius: variables.$radius-small;
     transition: filter 180ms ease;
   }
 
@@ -39,8 +40,7 @@
   }
 
   &__logo:focus-visible {
-    outline: 2px solid variables.$color-accent-blue;
-    outline-offset: 7px;
+    @include common.focus-ring(7px);
   }
 }
 
@@ -77,4 +77,5 @@
     transition: none;
   }
 }
+
 

@@ -1,3 +1,4 @@
+@use '../../styles/common' as common;
 @use '../../styles/variables' as variables;
 .character-list {
   width: 100%;
@@ -14,10 +15,8 @@
 
   &__eyebrow {
     margin: 0 0 10px;
-    color: variables.$color-accent-blue;
-    font-size: 10px;
+    @include common.eyebrow;
     font-weight: 700;
-    letter-spacing: 2px;
   }
 
   &__title {
@@ -28,7 +27,7 @@
 
   &__count {
     color: variables.$color-text-muted;
-    font-size: 13px;
+    font-size: variables.$font-size-meta;
   }
 
   &__items {
@@ -45,19 +44,31 @@
     gap: 16px;
     min-height: 48px;
     padding: 10px 14px;
-    border: 1px solid variables.$color-border;
-    border-radius: 8px;
-    background: variables.$color-surface;
+    @include common.surface($background: variables.$color-surface, $radius: variables.$radius-card);
   }
 
   &__number {
     flex-shrink: 0;
     color: variables.$color-accent-blue;
-    font-size: 12px;
+    font-size: variables.$font-size-small;
     font-variant-numeric: tabular-nums;
   }
 
+  &__item--selected {
+    border-color: variables.$color-accent;
+    background: rgba(variables.$color-accent, 0.08);
+  }
+
   &__name {
+    flex: 1;
+    min-height: 28px;
+    padding: 0;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
     overflow-wrap: anywhere;
     font-size: 15px;
     line-height: 1.5;
@@ -76,7 +87,7 @@
     text-align: center;
     margin: 0;
     color: variables.$color-text-muted;
-    font-size: 13px;
+    font-size: variables.$font-size-meta;
   }
 
   &__pagination {
@@ -86,9 +97,7 @@
     align-items: center;
     gap: 4px;
     padding: 4px;
-    border: 1px solid variables.$color-border;
-    border-radius: 10px;
-    background: variables.$color-surface-deep;
+    @include common.surface($background: variables.$color-surface-deep, $radius: variables.$radius-pagination);
   }
 
   &__ellipsis {
@@ -103,7 +112,7 @@
     min-height: variables.$control-height;
     padding: 8px 0;
     border: 1px solid transparent;
-    border-radius: 6px;
+    border-radius: variables.$radius-control;
     color: variables.$color-text;
     background: variables.$color-surface;
     font: inherit;
@@ -122,17 +131,17 @@
     cursor: default;
   }
 
+  &__name:focus-visible,
   &__page:focus-visible,
   &__retry:focus-visible {
-    outline: 2px solid variables.$color-accent-blue;
-    outline-offset: 3px;
+    @include common.focus-ring;
   }
 
   &__message {
     margin: 0;
     padding: 24px;
     border: 1px solid variables.$color-border;
-    border-radius: 8px;
+    border-radius: variables.$radius-card;
     color: variables.$color-text-secondary;
     background: variables.$color-surface;
     line-height: 1.6;
@@ -142,7 +151,7 @@
     min-height: variables.$control-height;
     padding: 10px 16px;
     border: 1px solid variables.$color-accent-blue;
-    border-radius: 6px;
+    border-radius: variables.$radius-control;
     color: variables.$color-text;
     background: transparent;
     font: inherit;
@@ -156,6 +165,8 @@
     background: variables.$color-border;
   }
 }
+
+
 
 
 

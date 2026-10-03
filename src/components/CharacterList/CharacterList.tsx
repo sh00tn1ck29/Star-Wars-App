@@ -25,7 +25,12 @@ function getPaginationItems(currentPage: number, totalPages: number): Pagination
 
   return [1, 'start-gap', currentPage, 'end-gap', totalPages];
 }
-export function CharacterList() {
+interface CharacterListProps {
+  selectedCharacter: Character | null;
+  onCharacterSelect: (character: Character) => void;
+}
+
+export function CharacterList({ selectedCharacter, onCharacterSelect }: CharacterListProps) {
   const [charactersState, setCharactersState] = useState<CharactersState>({ status: 'loading' });
   const [currentPage, setCurrentPage] = useState(1);
   const [requestVersion, setRequestVersion] = useState(0);
@@ -94,11 +99,13 @@ export function CharacterList() {
         <>
           <ol className="character-list__items" start={firstCharacterIndex + 1}>
             {visibleCharacters.map((character, index) => (
-              <li className="character-list__item" key={character.url}>
+              <li className={`character-list__item${selectedCharacter?.url === character.url ? ' character-list__item--selected' : ''}`} key={character.url}>
                 <span className="character-list__number" aria-hidden="true">
                   {String(firstCharacterIndex + index + 1).padStart(2, '0')}
                 </span>
-                <span className="character-list__name">{character.name}</span>
+                <button className="character-list__name" type="button" aria-pressed={selectedCharacter?.url === character.url} onClick={() => onCharacterSelect(character)}>
+                  {character.name}
+                </button>
               </li>
             ))}
           </ol>
@@ -130,5 +137,6 @@ export function CharacterList() {
     </section>
   );
 }
+
 
 

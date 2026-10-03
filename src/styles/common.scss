@@ -1,30 +1,18 @@
 @use './variables' as variables;
 
-:root {
-  font-family: variables.$font-family;
-  color: variables.$color-text;
-  background: variables.$color-background;
-  color-scheme: dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+@mixin focus-ring($offset: 3px) {
+  outline: 2px solid variables.$color-accent-blue;
+  outline-offset: $offset;
 }
 
-* { box-sizing: border-box; }
-body { margin: 0; min-width: 280px; }
-
-.skip-link {
-  position: fixed;
-  top: 12px;
-  left: 20px;
-  z-index: 10;
-  padding: 12px 16px;
-  color: variables.$color-background;
-  background: variables.$color-accent;
-  border-radius: 4px;
-  transform: translateY(-200%);
-
-  &:focus { transform: translateY(0); }
+@mixin eyebrow {
+  color: variables.$color-accent-blue;
+  font-size: variables.$font-size-caption;
+  letter-spacing: 2px;
 }
 
-
+@mixin surface($border-color: variables.$color-border, $background: variables.$color-surface, $radius: variables.$radius-card) {
+  border: variables.$border-width solid $border-color;
+  border-radius: $radius;
+  background: $background;
+}
