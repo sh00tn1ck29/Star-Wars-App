@@ -1,17 +1,12 @@
-import { apiClient } from './client';
+import { fetchCachedResource } from './fetchCachedResource';
+import type { FetchOptions } from './types';
 import type { Film } from '../types/film';
 
-import type { FetchOptions } from './types';
+const filmsCache = new Map<string, Film>();
 
 export async function fetchFilms(
   filmUrls: string[],
-  { signal }: FetchOptions = {},
+  options: FetchOptions = {},
 ): Promise<Film[]> {
-  return Promise.all(filmUrls.map(async (url) => {
-    const { data } = await apiClient.get<Film>(url, {
-      ...(signal ? { signal } : {}),
-    });
-
-    return data;
-  }));
+  return Promise.all(filmUrls.map((url) => fetchCachedResource(url, filmsCache, options)));
 }

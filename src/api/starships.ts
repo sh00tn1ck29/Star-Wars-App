@@ -1,17 +1,12 @@
-import { apiClient } from './client';
+import { fetchCachedResource } from './fetchCachedResource';
+import type { FetchOptions } from './types';
 import type { Starship } from '../types/starship';
 
-import type { FetchOptions } from './types';
+const starshipsCache = new Map<string, Starship>();
 
 export async function fetchStarships(
   starshipUrls: string[],
-  { signal }: FetchOptions = {},
+  options: FetchOptions = {},
 ): Promise<Starship[]> {
-  return Promise.all(starshipUrls.map(async (url) => {
-    const { data } = await apiClient.get<Starship>(url, {
-      ...(signal ? { signal } : {}),
-    });
-
-    return data;
-  }));
+  return Promise.all(starshipUrls.map((url) => fetchCachedResource(url, starshipsCache, options)));
 }
