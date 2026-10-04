@@ -1,0 +1,55 @@
+@use '../../styles/common' as common;
+@use '../../styles/breakpoints' as breakpoints;
+@use '../../styles/variables' as variables;
+
+.site-footer {
+  border-top: variables.$border-width solid variables.$color-border;
+  background: linear-gradient(110deg, rgba(variables.$color-glow-red, 0.08), transparent 45%, rgba(variables.$color-glow-blue, 0.08)), variables.$color-background;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: variables.$container-width;
+    margin-inline: auto;
+    padding: 28px 20px;
+  }
+
+  &__brand { display: grid; gap: 12px; }
+  &__logo { display: block; width: 88px; height: auto; }
+  &__tagline { margin: 0; color: variables.$color-text-secondary; font-size: variables.$font-size-body; }
+  &__info { display: grid; gap: 8px; justify-items: start; }
+  &__note { margin: 0; color: variables.$color-text-muted; font-size: variables.$font-size-small; }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: variables.$control-height;
+    color: variables.$color-accent-blue;
+    font-size: variables.$font-size-meta;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    border-radius: variables.$radius-small;
+  }
+
+  &__link:focus-visible { @include common.focus-ring; }
+}
+
+@media (hover: hover) {
+  .site-footer__link:hover { color: variables.$color-text; }
+}
+
+@media (min-width: breakpoints.$tablet) {
+  .site-footer__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px;
+  }
+
+  .site-footer__info { justify-items: end; }
+}
+
+@media (min-width: breakpoints.$desktop) {
+  .site-footer__inner { padding-inline: 48px; }
+}
