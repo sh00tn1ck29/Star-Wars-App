@@ -13,7 +13,7 @@ A responsive Single Page Application (SPA) built with React and TypeScript for e
 ### Key Features
 
 - **Mobile-First & Adaptive Layout:** Responsive interface for Desktop, Tablet, and Mobile devices, with a character list beside the graph on larger screens and a stacked layout on mobile.
-- **API-Based Character Directory:** Character information is loaded dynamically from [SWAPI](https://swapi.info/api/) through Axios.
+- **API-Based Character Directory:** Character information is loaded dynamically from [SWAPI](https://swapi.info/) through Axios.
 - **Paginated Character List:** Client-side pagination displays ten characters per page, with page navigation and a total character count.
 - **Character Selection:** Selecting a character highlights the corresponding list item and updates the graph without reloading the page.
 - **Interactive Relationship Graph:** React Flow visualizes the selected character, their films, and their starships. Film-to-starship connections are created when a starship belongs to both the character and the film.
