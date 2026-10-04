@@ -1,10 +1,5 @@
-import axios from 'axios';
+import { apiClient } from './client';
 import type { CharactersResponse } from '../types/character';
-
-const apiClient = axios.create({
-  baseURL: 'https://swapi.info/api/',
-  timeout: 15_000,
-});
 
 interface FetchCharactersOptions {
   signal?: AbortSignal;
@@ -19,3 +14,4 @@ export async function fetchCharacters(
 
   return data;
 }
+

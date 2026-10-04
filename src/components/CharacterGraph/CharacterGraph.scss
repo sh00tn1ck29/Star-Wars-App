@@ -5,6 +5,25 @@
 .character-graph {
   min-width: 0;
 
+  &__notice {
+    margin: 0;
+    padding: 12px 16px;
+    @include common.surface;
+    color: variables.$color-text-secondary;
+    font-size: variables.$font-size-body;
+    text-align: center;
+  }
+
+  &__retry {
+    min-height: variables.$control-height;
+    padding: 8px 16px;
+    @include common.surface($border-color: variables.$color-accent-blue);
+    color: variables.$color-text;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  &__retry:focus-visible { @include common.focus-ring; }
   &__title { margin: 0 0 20px; font-size: 22px; }
 
   &__canvas {
@@ -38,4 +57,5 @@
 @media (min-width: breakpoints.$tablet) {
   .character-graph__canvas { height: 600px; }
 }
+
 

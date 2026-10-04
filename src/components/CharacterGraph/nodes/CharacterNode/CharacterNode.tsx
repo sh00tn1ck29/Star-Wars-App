@@ -1,5 +1,6 @@
+import { Handle, Position } from '@xyflow/react';
 import type { Node, NodeProps } from '@xyflow/react';
-import type { Character } from '../../types/character';
+import type { Character } from '../../../../types/character';
 import './CharacterNode.scss';
 
 export type CharacterGraphNode = Node<{ character: Character }, 'character'>;
@@ -9,6 +10,7 @@ export function CharacterNode({ data }: NodeProps<CharacterGraphNode>) {
 
   return (
     <article className="character-node">
+      <Handle type="source" position={Position.Right} />
       <div className="character-node__portrait">
         <img className="character-node__image" src="/favicon.svg" alt="" draggable={false} />
         <span className="character-node__placeholder">PHOTO COMING SOON</span>
@@ -28,3 +30,5 @@ export function CharacterNode({ data }: NodeProps<CharacterGraphNode>) {
     </article>
   );
 }
+
+

@@ -1,0 +1,6 @@
+import axios from 'axios';
+
+export const apiClient = axios.create({
+  baseURL: 'https://swapi.info/api/',
+  timeout: 15_000,
+});
