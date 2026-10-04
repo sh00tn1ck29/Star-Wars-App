@@ -1,3 +1,4 @@
+import { BackgroundMusic } from '../BackgroundMusic/BackgroundMusic';
 import './Header.scss';
 
 export function Header() {
@@ -9,10 +10,12 @@ export function Header() {
           <a className="site-header__logo" href="/" aria-label="Star Wars — home">
             <img className="site-header__logo-image" src="/images/star-wars-logo.png" alt="Star Wars" width="4096" height="1770" />
           </a>
+          <BackgroundMusic />
         </div>
       </header>
     </>
   );
 }
+
 
 

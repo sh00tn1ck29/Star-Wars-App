@@ -17,6 +17,9 @@
   }
 
   &__inner {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
     display: flex;
     align-items: center;
     min-height: variables.$header-height-mobile;
@@ -77,5 +80,6 @@
     transition: none;
   }
 }
+
 
 
