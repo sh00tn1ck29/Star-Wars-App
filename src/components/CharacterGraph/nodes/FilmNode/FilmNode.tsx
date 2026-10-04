@@ -10,6 +10,7 @@ export function FilmNode({ data }: NodeProps<FilmGraphNode>) {
   return (
     <article className="film-node">
       <Handle type="target" position={Position.Left} />
+      <Handle type="source" position={Position.Right} />
       <div className="film-node__portrait">
         <img className="film-node__image" src="/favicon.svg" alt="" draggable={false} />
         <span className="film-node__placeholder">POSTER COMING SOON</span>
@@ -27,5 +28,6 @@ export function FilmNode({ data }: NodeProps<FilmGraphNode>) {
     </article>
   );
 }
+
 
 

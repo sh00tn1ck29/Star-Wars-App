@@ -17,24 +17,22 @@
   background: $background;
 }
 
-@mixin graph-card($border-color: variables.$color-accent) {
-width: 240px;
+@mixin graph-card($border-color: variables.$color-accent, $compact: false) {
+  width: 240px;
   overflow: hidden;
   @include surface($border-color: $border-color, $radius: variables.$radius-panel);
-  border-radius: variables.$radius-panel;
   color: variables.$color-text;
-  background: variables.$color-surface;
 
   &__portrait {
     display: grid;
     justify-items: center;
-    gap: 12px;
-    padding: 24px;
+    gap: if(sass($compact): 8px; else: 12px);
+    padding: if(sass($compact): 12px; else: 24px);
     border-bottom: 1px solid variables.$color-border;
     background: variables.$color-surface-deep;
   }
 
-  &__image { width: 100px; height: 100px; }
+  &__image { width: if(sass($compact): 48px; else: 100px); height: if(sass($compact): 48px; else: 100px); }
 
   &__placeholder {
     color: variables.$color-text-subtle;
@@ -42,7 +40,7 @@ width: 240px;
     letter-spacing: 1px;
   }
 
-  &__content { padding: 20px; }
+  &__content { padding: if(sass($compact): 16px; else: 20px); }
 
   &__category {
     margin: 0 0 8px;
@@ -50,7 +48,7 @@ width: 240px;
     
   }
 
-  &__name { margin: 0 0 20px; font-size: 20px; overflow-wrap: anywhere; }
+  &__name { margin: 0 0 if(sass($compact): 16px; else: 20px); font-size: if(sass($compact): 18px; else: 20px); overflow-wrap: anywhere; }
 
   &__details {
     display: grid;

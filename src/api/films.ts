@@ -1,13 +1,11 @@
 import { apiClient } from './client';
 import type { Film } from '../types/film';
 
-interface FetchFilmsOptions {
-  signal?: AbortSignal;
-}
+import type { FetchOptions } from './types';
 
 export async function fetchFilms(
   filmUrls: string[],
-  { signal }: FetchFilmsOptions = {},
+  { signal }: FetchOptions = {},
 ): Promise<Film[]> {
   return Promise.all(filmUrls.map(async (url) => {
     const { data } = await apiClient.get<Film>(url, {
