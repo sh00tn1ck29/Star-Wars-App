@@ -1,12 +1,10 @@
+import type { CharacterGraphData, GraphNode } from '../types/graph';
 import type { Edge } from '@xyflow/react';
 import type { Character } from '../../../types/character';
 import type { Film } from '../../../types/film';
-import type { CharacterGraphNode } from '../nodes/CharacterNode/CharacterNode';
-import type { FilmGraphNode } from '../nodes/FilmNode/FilmNode';
 
-export type GraphNode = CharacterGraphNode | FilmGraphNode;
 
-export function buildCharacterGraph(character: Character, films: Film[]): { nodes: GraphNode[]; edges: Edge[] } {
+export function buildCharacterGraph(character: Character, films: Film[]): CharacterGraphData {
   const filmSpacing = 280;
   const nodes: GraphNode[] = [{
     id: character.url,
@@ -33,4 +31,5 @@ export function buildCharacterGraph(character: Character, films: Film[]): { node
 
   return { nodes, edges };
 }
+
 

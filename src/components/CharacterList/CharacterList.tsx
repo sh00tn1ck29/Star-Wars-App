@@ -1,3 +1,4 @@
+import { Pagination } from '../Pagination/Pagination';
 import { useEffect, useState } from 'react';
 import { fetchCharacters } from '../../api/characters';
 import type { Character } from '../../types/character';
@@ -11,20 +12,6 @@ type CharactersState =
   | { status: 'success'; characters: Character[] }
   | { status: 'error' };
 
-type PaginationItem = number | 'start-gap' | 'end-gap';
-
-function getPaginationItems(currentPage: number, totalPages: number): PaginationItem[] {
-  if (totalPages <= 5) {
-    return Array.from({ length: totalPages }, (_, index) => index + 1);
-  }
-
-  if (currentPage <= 3) return [1, 2, 3, 'end-gap', totalPages];
-  if (currentPage >= totalPages - 2) {
-    return [1, 'start-gap', totalPages - 2, totalPages - 1, totalPages];
-  }
-
-  return [1, 'start-gap', currentPage, 'end-gap', totalPages];
-}
 interface CharacterListProps {
   selectedCharacter: Character | null;
   onCharacterSelect: (character: Character) => void;
@@ -114,29 +101,14 @@ export function CharacterList({ selectedCharacter, onCharacterSelect }: Characte
             <p className="character-list__summary" role="status">
               {firstCharacterIndex + 1}–{Math.min(firstCharacterIndex + CHARACTERS_PER_PAGE, characters.length)} of {characters.length}
             </p>
-            <nav className="character-list__pagination" aria-label="Characters pagination">
-              <button className="character-list__page" type="button" aria-label="Previous page" disabled={currentPage === 1} onClick={() => setCurrentPage((page) => page - 1)}>
-                ‹
-              </button>
-              {getPaginationItems(currentPage, totalPages).map((item) => (
-                typeof item === 'number' ? (
-                  <button className="character-list__page" type="button" key={item} aria-label={`Page ${item}`} aria-current={currentPage === item ? 'page' : undefined} onClick={() => setCurrentPage(item)}>
-                    {item}
-                  </button>
-                ) : (
-                  <span className="character-list__ellipsis" key={item} aria-hidden="true">…</span>
-                )
-              ))}
-              <button className="character-list__page" type="button" aria-label="Next page" disabled={currentPage === totalPages} onClick={() => setCurrentPage((page) => page + 1)}>
-                ›
-              </button>
-            </nav>
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} label="Characters pagination" />
           </div>
         </>
       )}
     </section>
   );
 }
+
 
 
 

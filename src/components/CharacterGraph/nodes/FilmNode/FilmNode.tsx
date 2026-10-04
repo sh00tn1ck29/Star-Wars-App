@@ -1,9 +1,8 @@
 import { Handle, Position } from '@xyflow/react';
-import type { Node, NodeProps } from '@xyflow/react';
-import type { Film } from '../../../../types/film';
+import type { NodeProps } from '@xyflow/react';
+import type { FilmGraphNode } from '../../types/graph';
 import './FilmNode.scss';
 
-export type FilmGraphNode = Node<{ film: Film }, 'film'>;
 
 export function FilmNode({ data }: NodeProps<FilmGraphNode>) {
   const { film } = data;
@@ -28,4 +27,5 @@ export function FilmNode({ data }: NodeProps<FilmGraphNode>) {
     </article>
   );
 }
+
 

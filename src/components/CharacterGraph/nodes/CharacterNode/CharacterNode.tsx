@@ -1,9 +1,8 @@
 import { Handle, Position } from '@xyflow/react';
-import type { Node, NodeProps } from '@xyflow/react';
-import type { Character } from '../../../../types/character';
+import type { NodeProps } from '@xyflow/react';
+import type { CharacterGraphNode } from '../../types/graph';
 import './CharacterNode.scss';
 
-export type CharacterGraphNode = Node<{ character: Character }, 'character'>;
 
 export function CharacterNode({ data }: NodeProps<CharacterGraphNode>) {
   const { character } = data;
@@ -30,5 +29,6 @@ export function CharacterNode({ data }: NodeProps<CharacterGraphNode>) {
     </article>
   );
 }
+
 
 

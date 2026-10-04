@@ -90,49 +90,7 @@
     font-size: variables.$font-size-meta;
   }
 
-  &__pagination {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(0, 1fr);
-    align-items: center;
-    gap: 4px;
-    padding: 4px;
-    @include common.surface($background: variables.$color-surface-deep, $radius: variables.$radius-pagination);
-  }
-
-  &__ellipsis {
-    display: grid;
-    place-items: center;
-    height: variables.$control-height;
-    color: variables.$color-text-subtle;
-  }
-
-  &__page {
-    min-width: 0;
-    min-height: variables.$control-height;
-    padding: 8px 0;
-    border: 1px solid transparent;
-    border-radius: variables.$radius-control;
-    color: variables.$color-text;
-    background: variables.$color-surface;
-    font: inherit;
-    cursor: pointer;
-  }
-
-  &__page[aria-current='page'] {
-    border-color: variables.$color-accent;
-    color: variables.$color-background;
-    background: variables.$color-accent;
-    font-weight: 700;
-  }
-
-  &__page:disabled {
-    opacity: 0.35;
-    cursor: default;
-  }
-
   &__name:focus-visible,
-  &__page:focus-visible,
   &__retry:focus-visible {
     @include common.focus-ring;
   }
@@ -160,11 +118,11 @@
 }
 
 @media (hover: hover) {
-  .character-list__page:hover:not(:disabled):not([aria-current='page']),
   .character-list__retry:hover {
     background: variables.$color-border;
   }
 }
+
 
 
 
