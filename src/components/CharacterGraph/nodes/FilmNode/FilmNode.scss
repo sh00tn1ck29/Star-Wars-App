@@ -1,8 +1,0 @@
-@use '../../../../styles/common' as common;
-@use '../../../../styles/variables' as variables;
-
-.film-node {
-  @include common.graph-card($border-color: variables.$color-accent-blue, $compact: true);
-
-}
-

@@ -1,0 +1,130 @@
+@use '../../scss/common' as common;
+@use '../../scss/variables' as variables;
+.character-list {
+  width: 100%;
+  min-width: 0;
+
+  &__heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  &__eyebrow {
+    margin: 0 0 10px;
+    @include common.eyebrow;
+    font-weight: 700;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  &__count {
+    color: variables.$color-text-muted;
+    font-size: variables.$font-size-meta;
+  }
+
+  &__items {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 48px;
+    padding: 10px 14px;
+    @include common.surface($background: variables.$color-surface, $radius: variables.$radius-card);
+  }
+
+  &__number {
+    flex-shrink: 0;
+    color: variables.$color-accent-blue;
+    font-size: variables.$font-size-small;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__item--selected {
+    border-color: variables.$color-accent;
+    background: rgba(variables.$color-accent, 0.08);
+  }
+
+  &__name {
+    flex: 1;
+    min-height: 28px;
+    padding: 0;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid variables.$color-border;
+  }
+
+  &__summary {
+    text-align: center;
+    margin: 0;
+    color: variables.$color-text-muted;
+    font-size: variables.$font-size-meta;
+  }
+
+  &__name:focus-visible,
+  &__retry:focus-visible {
+    @include common.focus-ring;
+  }
+
+  &__message {
+    margin: 0;
+    padding: 24px;
+    border: 1px solid variables.$color-border;
+    border-radius: variables.$radius-card;
+    color: variables.$color-text-secondary;
+    background: variables.$color-surface;
+    line-height: 1.6;
+  }
+
+  &__retry {
+    min-height: variables.$control-height;
+    padding: 10px 16px;
+    border: 1px solid variables.$color-accent-blue;
+    border-radius: variables.$radius-control;
+    color: variables.$color-text;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+  }
+}
+
+@media (hover: hover) {
+  .character-list__retry:hover {
+    background: variables.$color-border;
+  }
+}
+
+
+
+
+
+

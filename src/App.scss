@@ -1,5 +1,5 @@
-@use './styles/breakpoints' as breakpoints;
-@use './styles/variables' as variables;
+@use './scss/breakpoints' as breakpoints;
+@use './scss/variables' as variables;
 .app {
   display: flex;
   flex-direction: column;

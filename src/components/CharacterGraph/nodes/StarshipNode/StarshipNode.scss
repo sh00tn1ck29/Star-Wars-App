@@ -1,7 +1,0 @@
-@use '../../../../styles/common' as common;
-@use '../../../../styles/variables' as variables;
-
-.starship-node {
-  @include common.graph-card($border-color: variables.$color-accent-red, $compact: true);
-
-}

@@ -1,0 +1,66 @@
+@use '../../scss/common' as common;
+@use '../../scss/variables' as variables;
+@use '../../scss/breakpoints' as breakpoints;
+
+.background-music {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__toggle {
+    display: grid;
+    place-items: center;
+    width: variables.$control-height;
+    height: variables.$control-height;
+    @include common.surface;
+    color: variables.$color-text-muted;
+    cursor: pointer;
+  }
+
+  &__toggle[aria-pressed='true'] {
+    border-color: variables.$color-accent;
+    color: variables.$color-accent;
+  }
+
+  &__icon { width: 22px; height: 22px; }
+
+  &__volume {
+    width: 60px;
+    height: variables.$control-height;
+    margin: 0;
+    accent-color: variables.$color-accent;
+    cursor: pointer;
+  }
+
+  &__value {
+    width: 32px;
+    color: variables.$color-text-muted;
+    font-size: variables.$font-size-small;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__toggle:focus-visible,
+  &__volume:focus-visible { @include common.focus-ring; }
+
+  &__error {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 5;
+    width: 220px;
+    padding: 12px;
+    @include common.surface;
+    color: variables.$color-text-secondary;
+    font-size: variables.$font-size-small;
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: breakpoints.$tablet) {
+  .background-music__volume { width: 100px; }
+}
+
+@media (hover: hover) {
+  .background-music__toggle:hover { border-color: variables.$color-accent-blue; }
+}

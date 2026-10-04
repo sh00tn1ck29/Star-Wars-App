@@ -40,7 +40,7 @@ A responsive Single Page Application (SPA) built with React and TypeScript for e
 
 ### Breakpoint Management
 
-The layout uses a mobile-first approach with shared breakpoints defined in `src/styles/breakpoints.scss`:
+The layout uses a mobile-first approach with shared breakpoints defined in `src/scss/breakpoints.scss`:
 
 - **Desktop:** `1200px` and above - wider character list, expanded spacing, and the graph displayed alongside the list.
 - **Tablet:** From `768px` up to `1199px` - two-column layout with the character list on the left and the graph on the right.
@@ -52,11 +52,11 @@ The layout uses a mobile-first approach with shared breakpoints defined in `src/
 
 ```text
 src/
-  api/                         Axios client, requests, and cache helper
   components/
     BackgroundMusic/           Playback and volume controls
     CharacterGraph/
       nodes/                   Character, film, and starship cards
+      SelectedCharacterGraph/  Resource loading and React Flow rendering
       types/                   Graph node and loading-state types
       utils/                   Graph construction and edge creation
     CharacterList/             Character loading, selection, and pagination
@@ -64,8 +64,17 @@ src/
     Header/                    Logo and audio controls
     LoadingHelmet/             Animated SVG loader
     Pagination/                Reusable pagination controls
-  styles/                      Shared variables, breakpoints, and mixins
-  types/                       Character, film, and starship API models
+  entities/
+    character/                 Character gateways and API types
+    film/                      Film gateways, cache, and API types
+    starship/                  Starship gateways, cache, and API types
+    shared/                    Shared Axios gateway and request options
+  utils/                       Shared cached-resource request helper
+  scss/                        Common styles, variables, and breakpoints
+  App.tsx                      Application layout and selected character
+  App.scss                     Application layout styles
+  index.tsx                    React entry point
+  index.scss                   Global styles
 ```
 
 ---
@@ -101,7 +110,7 @@ Run the code quality check:
 npm run lint
 ```
 
-The API base URL is configured in `src/api/client.ts`. No API key or environment variables are required. This project uses `swapi.info` in place of the original task's API. Unit tests are omitted by agreement with the mentor.
+The API base URL is configured in `src/entities/shared/gateways/index.ts`. No API key or environment variables are required. This project uses `swapi.info` in place of the original task's API. Unit tests are omitted by agreement with the mentor.
 
 ---
 

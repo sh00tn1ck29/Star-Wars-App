@@ -1,0 +1,8 @@
+@use '../../../../scss/common' as common;
+@use '../../../../scss/variables' as variables;
+
+.film-node {
+  @include common.graph-card($border-color: variables.$color-accent-blue, $compact: true);
+
+}
+

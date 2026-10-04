@@ -1,0 +1,6 @@
+@use '../../../../scss/common' as common;
+
+.character-node {
+  @include common.graph-card;
+}
+

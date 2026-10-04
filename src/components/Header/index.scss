@@ -1,0 +1,85 @@
+@use '../../scss/common' as common;
+@use '../../scss/breakpoints' as breakpoints;
+@use '../../scss/variables' as variables;
+.site-header {
+  position: relative;
+  background: linear-gradient(110deg, rgba(variables.$color-glow-red, 0.13), transparent 40%, rgba(variables.$color-glow-blue, 0.12)), variables.$color-background;
+  border-bottom: 1px solid rgba(variables.$color-header-border, 0.12);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    inset-inline: 0;
+    height: 1px;
+    background: linear-gradient(90deg, variables.$color-accent-red, transparent 45%, transparent 55%, variables.$color-line-blue);
+    pointer-events: none;
+  }
+
+  &__inner {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    min-height: variables.$header-height-mobile;
+    max-width: variables.$container-width;
+    margin-inline: auto;
+    padding: 14px 20px;
+  }
+
+  &__logo {
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 108px;
+    border-radius: variables.$radius-small;
+    transition: filter 180ms ease;
+  }
+
+  &__logo-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__logo:focus-visible {
+    @include common.focus-ring(7px);
+  }
+}
+
+@media (hover: hover) {
+  .site-header__logo:hover {
+    filter: drop-shadow(0 0 8px rgba(variables.$color-logo-glow, 0.35));
+  }
+}
+
+@media (min-width: breakpoints.$tablet) {
+  .site-header__inner {
+    min-height: variables.$header-height-tablet;
+    padding: 20px 32px;
+  }
+
+  .site-header__logo {
+    width: 128px;
+  }
+}
+
+@media (min-width: breakpoints.$desktop) {
+  .site-header__inner {
+    min-height: variables.$header-height-desktop;
+    padding: 24px 48px;
+  }
+
+  .site-header__logo {
+    width: 144px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__logo {
+    transition: none;
+  }
+}
+
+
+

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import type { Character } from './types/character';
-import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
-import { CharacterList } from './components/CharacterList/CharacterList';
-import { CharacterGraph } from './components/CharacterGraph/CharacterGraph';
+import type { Character } from './entities/character/types/index';
+import { Header } from './components/Header/index';
+import { Footer } from './components/Footer/index';
+import { CharacterList } from './components/CharacterList/index';
+import { CharacterGraph } from './components/CharacterGraph/index';
 import './App.scss';
 
 export default function App() {
