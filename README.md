@@ -4,7 +4,7 @@
 
 Coming soon - the deployment link will be added here.
 
-[Source Code](https://github.com/sh00tn1ck29/Star-Wars-App)
+[Source Code](https://star-wars-app-pi-bay.vercel.app/)
 
 A responsive Single Page Application (SPA) built with React and TypeScript for exploring Star Wars characters, their films, and related starships. The application loads data from an external API and visualizes the relationships in an interactive React Flow graph, with a custom dark theme inspired by the Star Wars universe.
 
