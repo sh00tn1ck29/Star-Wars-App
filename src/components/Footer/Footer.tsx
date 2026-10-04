@@ -5,7 +5,9 @@ export function Footer() {
     <footer className="site-footer">
       <div className="site-footer__inner">
         <div className="site-footer__brand">
-          <img className="site-footer__logo" src="/images/star-wars-logo.png" alt="Star Wars" width="4096" height="1770" />
+          <a className="site-footer__logo-link" href="/" aria-label="Star Wars — home">
+            <img className="site-footer__logo" src="/images/star-wars-logo.png" alt="Star Wars" width="4096" height="1770" />
+          </a>
           <p className="site-footer__tagline">Explore a galaxy far, far away.</p>
         </div>
         <div className="site-footer__info">

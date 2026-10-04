@@ -16,6 +16,8 @@
   }
 
   &__brand { display: grid; gap: 12px; }
+  &__logo-link { display: inline-flex; justify-self: start; border-radius: variables.$radius-small; }
+  &__logo-link:focus-visible { @include common.focus-ring(7px); }
   &__logo { display: block; width: 88px; height: auto; }
   &__tagline { margin: 0; color: variables.$color-text-secondary; font-size: variables.$font-size-body; }
   &__info { display: grid; gap: 8px; justify-items: start; }
