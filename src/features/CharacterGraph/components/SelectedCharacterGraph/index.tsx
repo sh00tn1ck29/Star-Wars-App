@@ -1,15 +1,15 @@
-import { fetchStarships } from '../../../entities/starship/gateways/index';
-import { StarshipNode } from '../nodes/StarshipNode/index';
+import { fetchStarships } from '../../../../entities/starship/gateways/index';
+import { StarshipNode } from '../StarshipNode/index';
 import { useEffect, useState } from 'react';
 import { Background, Controls, Panel, ReactFlow } from '@xyflow/react';
-import { fetchFilms } from '../../../entities/film/gateways/index';
-import type { Character } from '../../../entities/character/types/index';
-import { CharacterNode } from '../nodes/CharacterNode/index';
-import { FilmNode } from '../nodes/FilmNode/index';
-import { buildCharacterGraph } from '../utils/buildCharacterGraph/index';
-import type { GraphNode, GraphResourcesState } from '../types/graph/index';
+import { fetchFilms } from '../../../../entities/film/gateways/index';
+import type { Character } from '../../../../entities/character/types/index';
+import { CharacterNode } from '../CharacterNode/index';
+import { FilmNode } from '../FilmNode/index';
+import { buildCharacterGraph } from '../../utils/buildCharacterGraph/index';
+import type { GraphNode, GraphResourcesState } from '../../types/graph/index';
 import '@xyflow/react/dist/style.css';
-import '../index.scss';
+import '../../index.scss';
 
 
 const nodeTypes = { character: CharacterNode, film: FilmNode, starship: StarshipNode };

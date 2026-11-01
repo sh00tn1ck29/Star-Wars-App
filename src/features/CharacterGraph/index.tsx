@@ -1,5 +1,5 @@
 import type { Character } from '../../entities/character/types/index';
-import { SelectedCharacterGraph } from './SelectedCharacterGraph/index';
+import { SelectedCharacterGraph } from './components/SelectedCharacterGraph/index';
 import './index.scss';
 
 interface CharacterGraphProps {

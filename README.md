@@ -51,30 +51,62 @@ The layout uses a mobile-first approach with shared breakpoints defined in `src/
 ### Project Structure
 
 ```text
+public/
+  images/                      Logos and helmet artwork
+  audio/                       Background music
+  favicon.svg
 src/
-  components/
-    BackgroundMusic/           Playback and volume controls
+  features/
+    CharacterList/
+      components/
+        Pagination/
+          index.tsx
+          index.scss
+      index.tsx
+      index.scss
     CharacterGraph/
-      nodes/                   Character, film, and starship cards
-      SelectedCharacterGraph/  Resource loading and React Flow rendering
-      types/                   Graph node and loading-state types
-      utils/                   Graph construction and edge creation
-    CharacterList/             Character loading, selection, and pagination
-    Footer/                    Footer branding and API link
-    Header/                    Logo and audio controls
-    LoadingHelmet/             Animated SVG loader
-    Pagination/                Reusable pagination controls
+      components/
+        CharacterNode/         index.tsx and index.scss
+        FilmNode/              index.tsx and index.scss
+        StarshipNode/          index.tsx and index.scss
+        SelectedCharacterGraph/
+          index.tsx
+      types/
+        graph/index.ts
+      utils/
+        buildCharacterGraph/index.ts
+        createGraphEdge/index.ts
+      index.tsx
+      index.scss
+    Header/
+      components/
+        BackgroundMusic/       index.tsx and index.scss
+      index.tsx
+      index.scss
+    Footer/                    index.tsx and index.scss
+    LoadingHelmet/             index.tsx and index.scss
   entities/
-    character/                 Character gateways and API types
-    film/                      Film gateways, cache, and API types
-    starship/                  Starship gateways, cache, and API types
-    shared/                    Shared Axios gateway and request options
-  utils/                       Shared cached-resource request helper
-  scss/                        Common styles, variables, and breakpoints
-  App.tsx                      Application layout and selected character
-  App.scss                     Application layout styles
-  index.tsx                    React entry point
-  index.scss                   Global styles
+    character/
+      gateways/index.ts
+      types/index.ts
+    film/
+      gateways/index.ts
+      types/index.ts
+    starship/
+      gateways/index.ts
+      types/index.ts
+    shared/
+      gateways/index.ts
+      types/index.ts
+  utils/index.ts               Shared cached-resource request helper
+  scss/
+    variables.scss
+    common.scss
+    breakpoints.scss
+  App.tsx
+  App.scss
+  index.tsx
+  index.scss
 ```
 
 ---

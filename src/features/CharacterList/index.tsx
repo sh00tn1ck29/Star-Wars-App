@@ -1,4 +1,4 @@
-import { Pagination } from '../Pagination/index';
+import { Pagination } from './components/Pagination/index';
 import { useEffect, useState } from 'react';
 import { fetchCharacters } from '../../entities/character/gateways/index';
 import type { Character } from '../../entities/character/types/index';

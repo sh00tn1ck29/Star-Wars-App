@@ -1,4 +1,4 @@
-import { BackgroundMusic } from '../BackgroundMusic/index';
+import { BackgroundMusic } from './components/BackgroundMusic/index';
 import './index.scss';
 
 export function Header() {
